@@ -1,0 +1,15 @@
+{
+  "author": "Erik Hollembeak (http://tense.io)",
+  "name": "naive",
+  "description": "A Naive Bayes Classifier",
+  "version": "0.0.0",
+  "repository": {
+    "type" : "git"
+    "url": "git://github.com/futureperfect/naive.git"
+  },
+  "engines": {
+    "node": "~0.4.12"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
