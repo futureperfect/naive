@@ -1,7 +1,7 @@
 var naive = exports;
 
 naive.train = function(classes, documents) {
-    var vocabulary = extract(documents)
+    var vocabulary = extractVocabulary(documents)
     return vocabulary
     //var docCount = documents.length
     // return {
@@ -20,9 +20,12 @@ naive.apply = function() {
     extractTokensFromDocument()
 }
 
-naive.extractTerms = function(documents) {
+naive.extractVocabulary = function(documents) {
     _ = require("underscore")
-    return _.map(documents, function(num) {
-        return [];
-    })
+    return _.chain(documents).map(function(document) {
+                                var terms = document.split(" ")
+                                return _(terms).map(function(term) {
+                                                        return term.toLowerCase();
+                                                    })
+                            }).flatten().union().value()
 }
