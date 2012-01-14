@@ -1,1 +1,1 @@
-module.exports = require('./naive');
+module.exports = require('./lib/naive');
