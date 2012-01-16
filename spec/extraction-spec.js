@@ -21,7 +21,7 @@ var expectedTermList = [ 'i', 'like', 'to', 'meow', 'sometimes', 'woof', 'more',
 vows.describe('vocabulary extraction').addBatch({
     'when extracting text from an empty document set': {
             topic: trainUtils.extractVocabulary([]),
-            'we get an empty term list': function (termList) {
+            'the term list is empty': function (termList) {
                 assert.isArray(termList)
                 assert.isEmpty(termList)
             }

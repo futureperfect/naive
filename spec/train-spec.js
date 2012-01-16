@@ -12,7 +12,7 @@ var missingDocumentSet = [
 ]
 
 vows.describe('train').addBatch({
-    'when a document in the corpus is missing a class label': {
+    'when training on a corpus containing a document with a missing class label': {
         topic: function() {
             require('naive').train(missingClassSet)
         },
@@ -20,7 +20,7 @@ vows.describe('train').addBatch({
             assert.equal(exception, "Document missing class property 'c'")
         }
     },
-    'when generating document class distributions from a document missing a document label': {
+    'when training on a corpus containing a document with a missing document label': {
         topic: function() {
             require('naive').train(missingDocumentSet)
         },
