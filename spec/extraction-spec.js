@@ -1,7 +1,7 @@
 var vows = require('vows'),
     assert = require('assert');
-
-var naive = require('naive');
+    _ = require('underscore')
+    trainUtils = require('../lib/trainUtils.js')
 
 var trainingSet = [
     {c:"cat", d:"I like to meow."},
@@ -20,14 +20,14 @@ var expectedTermList = [ 'i', 'like', 'to', 'meow', 'sometimes', 'woof', 'more',
 
 vows.describe('vocabulary extraction').addBatch({
     'when extracting text from an empty document set': {
-            topic: require('naive').extractVocabulary([]),
+            topic: trainUtils.extractVocabulary([]),
             'we get an empty term list': function (termList) {
                 assert.isArray(termList)
                 assert.isEmpty(termList)
             }
     },
     'when extracting text from a training set': {
-        topic: require('naive').extractVocabulary(trainingSet),
+        topic: trainUtils.extractVocabulary(trainingSet),
         'all terms are lowercase': function(termList) {
             assert.equal(_.all(termList, function(item) { return item === item.toLowerCase(); }), true)
         },
