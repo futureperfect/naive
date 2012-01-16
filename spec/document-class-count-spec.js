@@ -31,6 +31,7 @@ vows.describe('training class distribution').addBatch({
             assert.include(classDistribution, "cat")
             assert.include(classDistribution, "dog")
             assert.include(classDistribution, "human")
+            assert.equal(_.keys(classDistribution).length, 3)
         },
         'the correct frequency count distribution is returned': function(classDistribution) {
              assert.strictEqual(classDistribution.cat, 2)
